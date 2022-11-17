@@ -1,5 +1,6 @@
 package com.example.demo.resource;
 
+import com.example.demo.model.DOCUMENTO_DETALLE;
 import com.example.demo.model.Response;
 import com.example.demo.model.DOCUMENTO_EMPRESA;
 import com.example.demo.service.implementation.DOCUMENTO_EMPRESAServiceImpl;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +35,11 @@ public class DOCUMENTO_EMPRESAResource {
                         .statusCode(OK.value())
                         .build()
         );
+    }
+
+    @GetMapping("/lista")
+    public Collection<DOCUMENTO_EMPRESA> getRELACION_PER_EMPRESAss()  {
+        return documento_empresaService.list(30);
     }
 
     @PostMapping("/save")

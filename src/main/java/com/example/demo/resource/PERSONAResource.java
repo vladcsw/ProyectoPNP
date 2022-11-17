@@ -1,5 +1,6 @@
 package com.example.demo.resource;
 
+import com.example.demo.model.PERSONAL_PNP;
 import com.example.demo.model.Response;
 import com.example.demo.model.PERSONA;
 import com.example.demo.service.implementation.PERSONAServiceImpl;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
@@ -32,6 +34,11 @@ public class PERSONAResource {
                         .statusCode(OK.value())
                         .build()
         );
+    }
+
+    @GetMapping("/lista")
+    public Collection<PERSONA> getRELACION_PER_EMPRESAss()  {
+        return personaService.list(30);
     }
 
     @PostMapping("/save")

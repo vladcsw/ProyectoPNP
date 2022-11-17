@@ -1,5 +1,6 @@
 package com.example.demo.resource;
 
+import com.example.demo.model.PERSONA;
 import com.example.demo.model.Response;
 import com.example.demo.model.RELACION_EMP_DOMICILIO;
 import com.example.demo.service.implementation.RELACION_EMP_DOMICILIOServiceImpl;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
@@ -32,6 +34,11 @@ public class RELACION_EMP_DOMICILIOResource {
                         .statusCode(OK.value())
                         .build()
         );
+    }
+
+    @GetMapping("/lista")
+    public Collection<RELACION_EMP_DOMICILIO> getRELACION_PER_EMPRESAss()  {
+        return relacion_emp_domicilioService.list(30);
     }
 
     @PostMapping("/save")

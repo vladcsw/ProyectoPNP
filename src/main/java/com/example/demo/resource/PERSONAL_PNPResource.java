@@ -1,5 +1,6 @@
 package com.example.demo.resource;
 
+import com.example.demo.model.PERSONA_DOMICILIO;
 import com.example.demo.model.Response;
 import com.example.demo.model.PERSONAL_PNP;
 import com.example.demo.service.implementation.PERSONAL_PNPServiceImpl;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
@@ -32,6 +34,11 @@ public class PERSONAL_PNPResource {
                         .statusCode(OK.value())
                         .build()
         );
+    }
+
+    @GetMapping("/lista")
+    public Collection<PERSONAL_PNP> getRELACION_PER_EMPRESAss()  {
+        return personal_pnpService.list(30);
     }
 
     @PostMapping("/save")
