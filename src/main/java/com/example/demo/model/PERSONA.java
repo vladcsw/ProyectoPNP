@@ -18,5 +18,9 @@ public class PERSONA {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String descripcion;
+    private String nombre;
+    private String apellido;
+    private Integer edad;
+    private String estadoCivil;
+
 }

@@ -88,7 +88,7 @@ public class ServerResource {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now() )
-                        .data(Map.of("servers",serverService.test("persona")))
+                        .data(Map.of("cantidad_persona",serverService.test()))
                         .message("Servers retrieved")
                         .status(OK)
                         .statusCode(OK.value())

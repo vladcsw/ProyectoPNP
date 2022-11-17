@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.query.Procedure;
 public interface ServerRepo extends JpaRepository<Server, Long> {
 
     @Procedure("total_students")
-    String total();
+    int total();
 }

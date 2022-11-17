@@ -11,7 +11,5 @@ public interface ServerService {
     Server get(Long id);
     Boolean delete(Long id);
 
-    String test(String xd);
-
-
+    int test();
 }

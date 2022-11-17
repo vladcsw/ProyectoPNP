@@ -1,7 +1,9 @@
 package com.example.demo;
 
 import com.example.demo.enumeration.Status;
+import com.example.demo.model.RELACION_PER_EMPRESA;
 import com.example.demo.model.Server;
+import com.example.demo.repo.RELACION_PER_EMPRESARepo;
 import com.example.demo.repo.ServerRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -38,7 +40,7 @@ public class DemoApplication {
 	private String distrito;
 
 	@Bean
-	CommandLineRunner run(ServerRepo serverRepo) throws ParseException {
+	CommandLineRunner run(ServerRepo serverRepo, RELACION_PER_EMPRESARepo a) throws ParseException {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = DateFor.parse("05/05/2019");
@@ -47,8 +49,11 @@ public class DemoApplication {
 			serverRepo.save(new Server(null, "Juan", "Perez", "Perez", "soltero", "MASCULINO",date, "LIMA", "DNI", "12312312", "AREQUIPA", "AREQUIPA", "AREQUIPA"));
 			serverRepo.save(new Server(null, "Pedro", "Diaz", "Diaz", "soltero", "MASCULINO", date, "LIMA","DNI", "12312312", "AREQUIPA", "AREQUIPA", "AREQUIPA"));
 			//serverRepo.save(new Server(null, "Juan", "Perez", "Perez"));
+			a.save(new RELACION_PER_EMPRESA(null, "Director"));
+			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
 		};
 	}
+
 
 	@Bean
 	public CorsFilter corsFilter() {

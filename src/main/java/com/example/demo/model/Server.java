@@ -18,7 +18,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Persona")
+@Table(name="Personatest")
 public class Server {
     @Id
     @GeneratedValue(strategy = AUTO)

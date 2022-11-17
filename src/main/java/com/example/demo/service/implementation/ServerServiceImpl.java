@@ -1,6 +1,5 @@
 package com.example.demo.service.implementation;
 
-import com.example.demo.enumeration.Status;
 import com.example.demo.model.Server;
 import com.example.demo.repo.ServerRepo;
 import com.example.demo.service.ServerService;
@@ -8,13 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
-import java.net.InetAddress;
 import java.util.Collection;
-import java.util.Random;
 
 import static java.lang.Boolean.TRUE;
 
@@ -51,7 +46,7 @@ public class ServerServiceImpl implements ServerService {
     }
 
     @Override
-    public String test(String xd) {
+    public int test() {
 
         return serverRepo.total();
     }
