@@ -23,4 +23,5 @@ public class PERSONA {
     private Integer edad;
     private String estadoCivil;
 
+
 }

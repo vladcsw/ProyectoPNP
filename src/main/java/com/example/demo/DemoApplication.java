@@ -39,7 +39,7 @@ public class DemoApplication {
 	private String provincia;
 	private String distrito;
 
-	@Bean
+	/*@Bean
 	CommandLineRunner run(ServerRepo serverRepo, RELACION_PER_EMPRESARepo a) throws ParseException {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
@@ -52,7 +52,7 @@ public class DemoApplication {
 			a.save(new RELACION_PER_EMPRESA(null, "Director"));
 			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
 		};
-	}
+	}*/
 
 
 	@Bean
