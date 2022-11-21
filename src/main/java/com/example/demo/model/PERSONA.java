@@ -28,7 +28,8 @@ public class PERSONA {
     private String estadoCivil;
     private String genero;
     private String tipoDocumento;
-    private String documento;
+    private String numeroDocumento;
+    private String nacionalidad;
 
         //asunto
         //
