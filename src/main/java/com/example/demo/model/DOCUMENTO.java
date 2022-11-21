@@ -27,7 +27,7 @@ public class DOCUMENTO {
 
     //---
     private String asunto;
-    private String documento_clasificacion_id;
+    private int documento_clasificacion_id;
     private Date fechaObtención;
     private String documento_persona;
 
