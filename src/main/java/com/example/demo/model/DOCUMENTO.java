@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.util.Date;
+
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -22,5 +24,11 @@ public class DOCUMENTO {
     private int documento_estado_id;
     private int documento_caracteristica_id;
     private int id_dcumento_padre;
+
+    //---
+    private String asunto;
+    private String documento_clasificacion_id;
+    private Date fechaObtención;
+    private String documento_persona;
 
 }
