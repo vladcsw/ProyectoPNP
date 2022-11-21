@@ -25,7 +25,7 @@ public class DOCUMENTO {
     private int documento_caracteristica_id;
     private int id_dcumento_padre;
 
-    //---
+    //---a
     private String asunto;
     private int documento_clasificacion_id;
     private Date fechaObtención;
