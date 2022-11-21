@@ -30,5 +30,6 @@ public class DOCUMENTO {
     private int documento_clasificacion_id;
     private Date fechaObtención;
     private String documento_persona;
+    private String documento_prioridad;
 
 }
