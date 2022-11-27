@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import java.util.Date;
-
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -21,19 +19,19 @@ public class PERSONA {
     @GeneratedValue(strategy = AUTO)
     private Long id;
     private String nombre;
-    private String primerApellido;
-    private String segundoApellido;
-    private Date fechaNacimiento;
-    private String natural;
+    private String apellido;
+    private Integer edad;
     private String estadoCivil;
-    private String genero;
-    private String tipoDocumento;
-    private String numeroDocumento;
-    private String nacionalidad;
-
-        //asunto
-        //
-        //
-        //varchar descripcion
+    private String fec_reg;
+    private String fec_mod;
+    private int usu_reg;
+    private int usu_mod;
+    private String estado_activo;
+    private String primer_apellido;
+    private String segundo_apellido;
+    private String fec_nacimiento;
+    private int pais_id;
+    private int distrito_id;
+    private int centro_poblado_id;
 
 }
