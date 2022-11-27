@@ -19,4 +19,5 @@ public class RELACION_EMP_DOMICILIO {
     @GeneratedValue(strategy = AUTO)
     private Long id;
     private String descripcion;
+
 }

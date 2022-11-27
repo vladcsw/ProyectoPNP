@@ -23,5 +23,6 @@ public class DOCUMENTO {
     private int documento_caracteristica_id;
     private int id_dcumento_padre;
     private int documento_clasificacion_id;
+    private int documento_clase_tipo_id;
 
 }

@@ -20,4 +20,7 @@ public class PERSONAL_PNP {
     private Long id;
     private String descripcion;
     private int persona_id;
+    private String cip;
+    private String fec_ing;
+    private int unidad_pnp_escuela_id;
 }
