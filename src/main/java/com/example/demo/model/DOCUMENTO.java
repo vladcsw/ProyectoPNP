@@ -32,6 +32,7 @@ public class DOCUMENTO {
     private LocalDate fecha;
     private String obtencionInformacion;
     private String situacion;
+    private String instructor;
     private int documento_prioridad_id;
     //
     private int documento_estado_id;

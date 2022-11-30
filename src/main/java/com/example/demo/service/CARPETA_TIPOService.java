@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.model.CARACTERISTICA_TIPO;
 import com.example.demo.model.CARPETA_TIPO;
 
 import java.util.Collection;

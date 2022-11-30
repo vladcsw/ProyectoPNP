@@ -29,6 +29,7 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
         documento.setTipoDocumento("NOTA DE AGENTE");
         documento.setCodigo("SIPA-"+LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMYYYY"))+'-'+documentoRepo.count());
         documento.setSituacion("URGENTE");
+        documento.setInstructor("USUARIO");
         return documentoRepo.save(documento);
 
 
