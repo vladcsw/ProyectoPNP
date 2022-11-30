@@ -32,7 +32,7 @@ public class DOCUMENTO_EMPRESAServiceImpl implements DOCUMENTO_EMPRESAService {
 
     @Override
     public DOCUMENTO_EMPRESA get(Long id) {
-        return documento_empresaRepo.findById(id).get();
+        return documento_empresaRepo.findById(id).orElse(null);
     }
     
     @Override

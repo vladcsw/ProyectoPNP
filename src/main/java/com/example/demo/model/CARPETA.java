@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -18,7 +21,9 @@ public class CARPETA {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String descripcion;
+    private String nombre;
+    private LocalDate fecha;
+    private String hora;
     private int carpeta_tipo_id;
     private int carpeta_clasificacion_id;
 }

@@ -32,7 +32,7 @@ public class DOCUMENTO_PERSONAServiceImpl implements DOCUMENTO_PERSONAService {
 
     @Override
     public DOCUMENTO_PERSONA get(Long id) {
-        return documento_personaRepo.findById(id).get();
+        return documento_personaRepo.findById(id).orElse(null);
     }
 
     @Override

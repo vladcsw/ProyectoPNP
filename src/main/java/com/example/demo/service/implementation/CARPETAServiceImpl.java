@@ -6,9 +6,12 @@ import com.example.demo.service.CARPETAService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 import static java.lang.Boolean.TRUE;
@@ -23,6 +26,9 @@ public class CARPETAServiceImpl implements CARPETAService {
     @Override
     public CARPETA create(CARPETA carpeta) {
         log.info("Saving new carpeta:{}",carpeta.getId());
+        carpeta.setFecha(LocalDate.now());
+        LocalDateTime x = LocalDateTime.now();
+        carpeta.setHora(x.getHour()+":"+x.getMinute()+":"+x.getSecond());
         return carpetaRepo.save(carpeta);
     }
 

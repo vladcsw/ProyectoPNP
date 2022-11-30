@@ -37,7 +37,7 @@ public class DOCUMENTO_DETALLEServiceImpl implements DOCUMENTO_DETALLEService {
     @Override
     public DOCUMENTO_DETALLE get(Long id) {
         log.info("Fetching documento_detalle by id: {}",id);
-        return documento_detalleRepo.findById(id).get();
+        return documento_detalleRepo.findById(id).orElse(null);
     }
 
 

@@ -35,7 +35,7 @@ public class DOCUMENTO_TIPOServiceImpl implements DOCUMENTO_TIPOService {
     @Override
     public DOCUMENTO_TIPO get(Long id) {
         log.info("Fetching documento_tipo by id: {}",id);
-        return documento_tipoRepo.findById(id).get();
+        return documento_tipoRepo.findById(id).orElse(null);
     }
 
 

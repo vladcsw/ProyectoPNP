@@ -35,7 +35,7 @@ public class DOCUMENTO_ORIGENServiceImpl implements DOCUMENTO_ORIGENService {
     @Override
     public DOCUMENTO_ORIGEN get(Long id) {
         log.info("Fetching documento_origen by id: {}",id);
-        return documento_origenRepo.findById(id).get();
+        return documento_origenRepo.findById(id).orElse(null);
     }
 
 

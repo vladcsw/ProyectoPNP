@@ -10,7 +10,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
+import java.util.Date;
 
 import static java.lang.Boolean.TRUE;
 
@@ -22,7 +25,14 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
     private final DOCUMENTORepo documentoRepo;
     @Override
     public DOCUMENTO create(DOCUMENTO documento) {
+        documento.setCodigo(documento.getDescripcion()+ LocalDate.now());
+        documento.setTipoDocumento("NOTA DE AGENTE");
+        documento.setCodigo("SIPA-"+LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMYYYY"))+'-'+documentoRepo.count());
+        documento.setSituacion("URGENTE");
         return documentoRepo.save(documento);
+
+
+
     }
 
     @Override

@@ -1,9 +1,7 @@
 package com.example.demo.resource;
 
-import com.example.demo.model.DOCUMENTO_PERSONA;
-import com.example.demo.model.Response;
-import com.example.demo.model.DOCUMENTO;
-import com.example.demo.service.implementation.DOCUMENTOServiceImpl;
+import com.example.demo.model.*;
+import com.example.demo.service.implementation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +10,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 
 import static java.time.LocalDateTime.now;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -22,6 +21,11 @@ import static org.springframework.http.HttpStatus.OK;
 @RequiredArgsConstructor
 public class DOCUMENTOResource {
     private final DOCUMENTOServiceImpl documentoService;
+    private final DOCUMENTO_CARACTERISTICAServiceImpl documento_caracteristicaService;
+    private final DOCUMENTO_ESTADOServiceImpl documento_estadoService;
+    private final DOCUMENTO_CLASIFICACIONServiceImpl documento_clasificacionService;
+    private final DOCUMENTO_TIPOServiceImpl documento_tipoService;
+
     @GetMapping("/list")
     public ResponseEntity<Response> getDOCUMENTOs() throws InterruptedException {
         //throw new InterruptedException("Something went wrong");
@@ -79,6 +83,46 @@ public class DOCUMENTOResource {
                         .build()
         );
     }
+
+    @GetMapping("/getx/{id}")
+    public ResponseEntity<ResponseDocumento> getStringDocumento(@PathVariable("id") Long id){
+
+        String caracteristica = "";
+        String clasificación = "";
+        String estado = "";
+        String tipo = "";
+        String empresa = "";
+        String origen = "";
+        String persona = "";
+        String detalle = "";
+        if(documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
+            caracteristica = documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        }
+        if(documento_clasificacionService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
+            clasificación = documento_clasificacionService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        }
+        if(documento_estadoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
+            estado = documento_estadoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        }
+        if(documento_tipoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
+            tipo = documento_tipoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        }
+
+        return ResponseEntity.ok(
+                ResponseDocumento.builder()
+                        .caracteristica(caracteristica)
+                        .clasificacion(clasificación)
+                        .detalle(detalle)
+                        .empresa(empresa)
+                        .estado(estado)
+                        .origen(origen)
+                        .persona(persona)
+                        .tipo(tipo)
+                        .build()
+        );
+    }
+
+
 
 
 }

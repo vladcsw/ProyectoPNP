@@ -35,7 +35,7 @@ public class DOCUMENTO_ESTADOServiceImpl implements DOCUMENTO_ESTADOService {
     @Override
     public DOCUMENTO_ESTADO get(Long id) {
         log.info("Fetching documento_estado by id: {}",id);
-        return documento_estadoRepo.findById(id).get();
+        return documento_estadoRepo.findById(id).orElse(null);
     }
 
 

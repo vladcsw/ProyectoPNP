@@ -1,8 +1,10 @@
 package com.example.demo;
 
 import com.example.demo.enumeration.Status;
+import com.example.demo.model.DOCUMENTO;
 import com.example.demo.model.RELACION_PER_EMPRESA;
 import com.example.demo.model.Server;
+import com.example.demo.repo.DOCUMENTORepo;
 import com.example.demo.repo.RELACION_PER_EMPRESARepo;
 import com.example.demo.repo.ServerRepo;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +17,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -39,20 +42,25 @@ public class DemoApplication {
 	private String provincia;
 	private String distrito;
 
-	/*@Bean
-	CommandLineRunner run(ServerRepo serverRepo, RELACION_PER_EMPRESARepo a) throws ParseException {
+	@Bean
+	CommandLineRunner run(ServerRepo serverRepo, RELACION_PER_EMPRESARepo a, DOCUMENTORepo documentoRepo) throws ParseException {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = DateFor.parse("05/05/2019");
 
 		return args -> {
+			documentoRepo.save(new DOCUMENTO(null,"descripción","asunto","tipoDocumento","codigo", LocalDate.now(), "obtencion", "situacion",1,1,1,1,1,1));
+
+
+
 			serverRepo.save(new Server(null, "Juan", "Perez", "Perez", "soltero", "MASCULINO",date, "LIMA", "DNI", "12312312", "AREQUIPA", "AREQUIPA", "AREQUIPA"));
 			serverRepo.save(new Server(null, "Pedro", "Diaz", "Diaz", "soltero", "MASCULINO", date, "LIMA","DNI", "12312312", "AREQUIPA", "AREQUIPA", "AREQUIPA"));
 			//serverRepo.save(new Server(null, "Juan", "Perez", "Perez"));
 			a.save(new RELACION_PER_EMPRESA(null, "Director"));
 			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
+
 		};
-	}*/
+	}
 
 
 	@Bean

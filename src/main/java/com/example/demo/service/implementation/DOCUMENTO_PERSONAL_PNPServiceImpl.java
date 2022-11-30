@@ -35,7 +35,7 @@ public class DOCUMENTO_PERSONAL_PNPServiceImpl implements DOCUMENTO_PERSONAL_PNP
     @Override
     public DOCUMENTO_PERSONAL_PNP get(Long id) {
         log.info("Fetching documento_personal_pnp by id: {}",id);
-        return documento_personal_pnpRepo.findById(id).get();
+        return documento_personal_pnpRepo.findById(id).orElse(null);
     }
 
 

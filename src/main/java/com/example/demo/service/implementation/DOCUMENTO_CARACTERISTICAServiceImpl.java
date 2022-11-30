@@ -35,9 +35,9 @@ public class DOCUMENTO_CARACTERISTICAServiceImpl implements DOCUMENTO_CARACTERIS
     @Override
     public DOCUMENTO_CARACTERISTICA get(Long id) {
         log.info("Fetching documento_caracteristica by id: {}",id);
-        return documento_caracteristicaRepo.findById(id).get();
+        //return documento_caracteristicaRepo.findById(id).get();
+        return documento_caracteristicaRepo.findById(id).orElse(null);
     }
-
 
     @Override
     public Boolean delete(Long id) {

@@ -35,7 +35,7 @@ public class DOCUMENTO_CLASIFICACIONServiceImpl implements DOCUMENTO_CLASIFICACI
     @Override
     public DOCUMENTO_CLASIFICACION get(Long id) {
         log.info("Fetching documento_clasificacion by id: {}",id);
-        return documento_clasificacionRepo.findById(id).get();
+        return documento_clasificacionRepo.findById(id).orElse(null);
     }
 
 
