@@ -7,6 +7,8 @@ import com.example.demo.model.Server;
 import com.example.demo.repo.DOCUMENTORepo;
 import com.example.demo.repo.RELACION_PER_EMPRESARepo;
 import com.example.demo.repo.ServerRepo;
+import com.example.demo.service.ARCHIVOService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +25,8 @@ import java.util.Date;
 
 @SpringBootApplication
 public class DemoApplication {
-
+	@Autowired
+	ARCHIVOService fileService;
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -47,6 +50,8 @@ public class DemoApplication {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = DateFor.parse("05/05/2019");
+		fileService.deleteAll();
+		fileService.init();
 
 		return args -> {
 			documentoRepo.save(new DOCUMENTO(null,"descripción","asunto","tipoDocumento","codigo", LocalDate.now(), "obtencion", "situacion","instructor",1,1,1,1,1,1,1));
@@ -60,6 +65,7 @@ public class DemoApplication {
 			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
 
 		};
+
 	}
 
 
