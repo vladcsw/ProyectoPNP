@@ -2,6 +2,7 @@ package com.example.demo.service.implementation;
 
 import com.example.demo.model.DOCUMENTO_EMPRESA;
 import com.example.demo.model.DOCUMENTO_EMPRESA;
+import com.example.demo.model.DOCUMENTO_INMUEBLE;
 import com.example.demo.repo.DOCUMENTO_EMPRESARepo;
 import com.example.demo.service.DOCUMENTO_EMPRESAService;
 import lombok.RequiredArgsConstructor;
@@ -40,4 +41,10 @@ public class DOCUMENTO_EMPRESAServiceImpl implements DOCUMENTO_EMPRESAService {
         documento_empresaRepo.deleteById(id);
         return TRUE;
     }
+
+    public Collection<DOCUMENTO_EMPRESA> byDocumento(Long id) {
+        log.info("byDocumento:{}", id);
+        return documento_empresaRepo.ByDocumentoId(id);
+    }
+
 }

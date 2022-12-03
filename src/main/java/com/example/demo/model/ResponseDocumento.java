@@ -12,6 +12,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 public class ResponseDocumento {
     protected String caracteristica;
     protected String clasificacion;
+    protected String prioridad;
     protected String detalle;
     protected String empresa;
     protected String estado;

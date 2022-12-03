@@ -35,7 +35,7 @@ public class PRIORIDADServiceImpl implements PRIORIDADService {
     @Override
     public PRIORIDAD get(Long id) {
         log.info("Fetching prioridad by id: {}",id);
-        return prioridadRepo.findById(id).get();
+        return prioridadRepo.findById(id).orElse(null);
     }
 
 

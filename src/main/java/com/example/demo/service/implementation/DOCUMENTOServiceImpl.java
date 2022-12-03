@@ -30,6 +30,7 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
         documento.setCodigo("SIPA-"+LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMYYYY"))+'-'+documentoRepo.count());
         documento.setSituacion("URGENTE");
         documento.setInstructor("USUARIO");
+        documento.setDisposicion(1);
         return documentoRepo.save(documento);
 
 
@@ -51,4 +52,16 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
         documentoRepo.deleteById(id);
         return TRUE;
     }
+
+    public void detach(Long id) {
+        documentoRepo.papelera(id);
+    }
+
+    public Collection<DOCUMENTO> listestadonormal() {
+        return documentoRepo.findAllBydisposicion(1);
+    }
+    public Collection<DOCUMENTO> listestadoanulado() {
+        return documentoRepo.findAllBydisposicion(2);
+    }
+
 }

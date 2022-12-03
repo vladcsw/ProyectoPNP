@@ -26,6 +26,8 @@ public class DOCUMENTOResource {
     private final DOCUMENTO_CLASIFICACIONServiceImpl documento_clasificacionService;
     private final DOCUMENTO_TIPOServiceImpl documento_tipoService;
 
+    private final PRIORIDADServiceImpl prioridadService;
+
     @GetMapping("/list")
     public ResponseEntity<Response> getDOCUMENTOs() throws InterruptedException {
         //throw new InterruptedException("Something went wrong");
@@ -95,23 +97,28 @@ public class DOCUMENTOResource {
         String origen = "";
         String persona = "";
         String detalle = "";
+        String prioridad = "";
         if(documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
             caracteristica = documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
         }
         if(documento_clasificacionService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            clasificación = documento_clasificacionService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+            clasificación = documento_clasificacionService.get((long) documentoService.get(id).getDocumento_clasificacion_id()).getDescripcion();
         }
         if(documento_estadoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            estado = documento_estadoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+            estado = documento_estadoService.get((long) documentoService.get(id).getDocumento_estado_id()).getDescripcion();
         }
-        if(documento_tipoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            tipo = documento_tipoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        if(documentoService.get(id).getTipoDocumento() != null){
+            tipo =  documentoService.get(id).getTipoDocumento();
+        }
+        if(prioridadService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
+            prioridad = prioridadService.get((long) documentoService.get(id).getDocumento_prioridad_id()).getDescripcion();
         }
 
         return ResponseEntity.ok(
                 ResponseDocumento.builder()
                         .caracteristica(caracteristica)
                         .clasificacion(clasificación)
+                        .prioridad(prioridad)
                         .detalle(detalle)
                         .empresa(empresa)
                         .estado(estado)

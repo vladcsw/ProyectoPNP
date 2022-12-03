@@ -49,7 +49,7 @@ public class DemoApplication {
 		Date date = DateFor.parse("05/05/2019");
 
 		return args -> {
-			documentoRepo.save(new DOCUMENTO(null,"descripción","asunto","tipoDocumento","codigo", LocalDate.now(), "obtencion", "situacion","instructor",1,1,1,1,1,1));
+			documentoRepo.save(new DOCUMENTO(null,"descripción","asunto","tipoDocumento","codigo", LocalDate.now(), "obtencion", "situacion","instructor",1,1,1,1,1,1,1));
 
 
 

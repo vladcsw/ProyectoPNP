@@ -1,5 +1,6 @@
 package com.example.demo.service.implementation;
 
+import com.example.demo.model.DOCUMENTO_INMUEBLE;
 import com.example.demo.model.DOCUMENTO_PERSONA;
 import com.example.demo.model.DOCUMENTO_PERSONA;
 import com.example.demo.repo.DOCUMENTO_PERSONARepo;
@@ -39,5 +40,10 @@ public class DOCUMENTO_PERSONAServiceImpl implements DOCUMENTO_PERSONAService {
     public Boolean delete(Long id) {
         documento_personaRepo.deleteById(id);
         return TRUE;
+    }
+
+    public Collection<DOCUMENTO_PERSONA> byDocumento(Long id) {
+        log.info("byDocumento:{}", id);
+        return documento_personaRepo.ByDocumentoId(id);
     }
 }

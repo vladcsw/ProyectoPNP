@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static java.lang.Thread.sleep;
 import static java.time.LocalDateTime.now;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -31,7 +32,8 @@ public class ServerResource {
     private final ServerServiceImpl serverService;
     @GetMapping("/list")
     public ResponseEntity<Response> getServers() throws InterruptedException {
-        //throw new InterruptedException("Something went wrong");
+        //throw new InterruptedException("Something went wrong");}
+        sleep(10000);
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())

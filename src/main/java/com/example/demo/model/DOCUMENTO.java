@@ -33,13 +33,17 @@ public class DOCUMENTO {
     private String obtencionInformacion;
     private String situacion;
     private String instructor;
+    private int disposicion;
     private int documento_prioridad_id;
+
     //
     private int documento_estado_id;
     private int documento_caracteristica_id;
     private int id_dcumento_padre;
     private int documento_clasificacion_id;
     private int documento_clase_tipo_id;
+    //
+
 
 
 }

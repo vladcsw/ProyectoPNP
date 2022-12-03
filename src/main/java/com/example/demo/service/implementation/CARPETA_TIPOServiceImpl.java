@@ -23,6 +23,7 @@ public class CARPETA_TIPOServiceImpl implements CARPETA_TIPOService {
     @Override
     public CARPETA_TIPO create(CARPETA_TIPO carpeta_tipo) {
         log.info("Saving new carpeta_tipo:{}",carpeta_tipo.getId());
+
         return carpeta_tipoRepo.save(carpeta_tipo);
     }
 
@@ -35,6 +36,7 @@ public class CARPETA_TIPOServiceImpl implements CARPETA_TIPOService {
     @Override
     public CARPETA_TIPO get(Long id) {
         log.info("Fetching carpeta_tipo by id: {}",id);
+
         return carpeta_tipoRepo.findById(id).get();
     }
 
@@ -45,4 +47,5 @@ public class CARPETA_TIPOServiceImpl implements CARPETA_TIPOService {
         carpeta_tipoRepo.deleteById(id);
         return TRUE;
     }
+
 }

@@ -20,6 +20,6 @@ public class DOCUMENTO_PERSONA {
     private Long id;
     private String descripcion;
     private int persona_id;
-    private int documento_id;
+    private Long documento_id;
     private int relacion_documento_id;
 }
