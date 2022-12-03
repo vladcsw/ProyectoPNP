@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
@@ -89,47 +90,65 @@ public class DOCUMENTOResource {
     @GetMapping("/getx/{id}")
     public ResponseEntity<ResponseDocumento> getStringDocumento(@PathVariable("id") Long id){
 
-        String caracteristica = "";
-        String clasificación = "";
-        String estado = "";
-        String tipo = "";
+        DOCUMENTO x = documentoService.get(id);
+        Long idx = x.getId() != null ? x.getId() : 0;
+        String descripcion = x.getDescripcion() != null ? x.getDescripcion() : "";
+        String asunto = x.getAsunto() != null ? x.getAsunto() : "";
+        String tipoDocumento = x.getTipoDocumento() != null ? x.getTipoDocumento() : "";
+        String codigo = x.getCodigo() != null ? x.getCodigo() : "";
+        LocalDate fecha = x.getFecha() != null ? x.getFecha() : LocalDate.of(1900,01,01);
+        String obtencionInformacion = x.getObtencionInformacion() != null ? x.getObtencionInformacion() : "";
+        String situacion = x.getSituacion() != null ? x.getSituacion() : "";
+        String instructor = x.getInstructor() != null ? x.getInstructor() : "";
+        int disposicion = x.getDisposicion() != 0 ? x.getDisposicion() : 0;
+
+        //Maestros no existentes
+        String detalle = "";
         String empresa = "";
         String origen = "";
         String persona = "";
-        String detalle = "";
+        String tipo = "";
+        //Maestros existentes
         String prioridad = "";
-        if(documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            caracteristica = documento_caracteristicaService.get((long) documentoService.get(id).getDocumento_caracteristica_id()).getDescripcion();
+        String estado = "";
+        String caracteristica = "";
+        String clasificación = "";
+        if(prioridadService.get((long) x.getDocumento_prioridad_id()) != null){
+            prioridad = prioridadService.get((long) x.getDocumento_prioridad_id()).getDescripcion();
         }
-        if(documento_clasificacionService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            clasificación = documento_clasificacionService.get((long) documentoService.get(id).getDocumento_clasificacion_id()).getDescripcion();
+        if(documento_estadoService.get((long) x.getDocumento_estado_id()) != null){
+            estado = documento_estadoService.get((long) x.getDocumento_estado_id()).getDescripcion();
         }
-        if(documento_estadoService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            estado = documento_estadoService.get((long) documentoService.get(id).getDocumento_estado_id()).getDescripcion();
+        if(documento_caracteristicaService.get((long) x.getDocumento_caracteristica_id()) != null){
+            caracteristica = documento_caracteristicaService.get((long) x.getDocumento_caracteristica_id()).getDescripcion();
         }
-        if(documentoService.get(id).getTipoDocumento() != null){
-            tipo =  documentoService.get(id).getTipoDocumento();
-        }
-        if(prioridadService.get((long) documentoService.get(id).getDocumento_caracteristica_id()) != null){
-            prioridad = prioridadService.get((long) documentoService.get(id).getDocumento_prioridad_id()).getDescripcion();
+        if(documento_clasificacionService.get((long) x.getDocumento_clasificacion_id()) != null){
+            clasificación = documento_clasificacionService.get((long) x.getDocumento_clasificacion_id()).getDescripcion();
         }
 
         return ResponseEntity.ok(
                 ResponseDocumento.builder()
+                        .id(idx)
+                        .descripcion(descripcion)
+                        .asunto(asunto)
+                        .tipoDocumento(tipoDocumento)
+                        .codigo(codigo)
+                        .fecha(fecha)
+                        .obtencionInformacion(obtencionInformacion)
+                        .situacion(situacion)
+                        .instructor(instructor)
+                        .disposicion(disposicion)
+                        .prioridad(prioridad)
+                        .estado(estado)
                         .caracteristica(caracteristica)
                         .clasificacion(clasificación)
-                        .prioridad(prioridad)
                         .detalle(detalle)
                         .empresa(empresa)
-                        .estado(estado)
                         .origen(origen)
                         .persona(persona)
                         .tipo(tipo)
                         .build()
         );
     }
-
-
-
 
 }
