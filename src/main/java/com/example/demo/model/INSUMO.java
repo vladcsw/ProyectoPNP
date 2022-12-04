@@ -10,16 +10,18 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ARCHIVO {
+public class INSUMO {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String name;
-    private String url;
-    private Long documento_id;
+    private Long insumo_calificacion_id;
+    private String nombre;
+    private int cantidad;
+    private Long insumo_situacion_id;
+    private Long insumo_intervenido_id;
+
 }

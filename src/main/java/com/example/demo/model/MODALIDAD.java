@@ -10,16 +10,16 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ARCHIVO {
+public class MODALIDAD {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String name;
-    private String url;
-    private Long documento_id;
+    private Long modalidad_tipo_id;
+    private Long modalidad_empleada_id;
+    private String descripcion;
+
 }

@@ -5,8 +5,8 @@ spring:
       max-request-size: 5000KB
   datasource:
     platform: postgres
-    password: admin
-    url: jdbc:postgresql://localhost:5433/police
+    password: user
+    url: jdbc:postgresql://localhost:5432/test
     username: postgres
   jpa:
     database: POSTGRESQL

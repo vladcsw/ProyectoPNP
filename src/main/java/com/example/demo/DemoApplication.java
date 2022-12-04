@@ -50,7 +50,7 @@ public class DemoApplication {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = DateFor.parse("05/05/2019");
-		fileService.deleteAll();
+		//fileService.deleteAll();
 		fileService.init();
 
 		return args -> {

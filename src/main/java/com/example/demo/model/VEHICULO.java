@@ -10,16 +10,19 @@ import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ARCHIVO {
+public class VEHICULO {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String name;
-    private String url;
-    private Long documento_id;
+    private String descripcion;
+    private Long vehiculo_tipo_id;
+    private String numeroPlaca;
+    private String tarjetaPropiedad;
+    private Long persona_propietario_id;
+    private Long persona_posesion_id;
+
 }
