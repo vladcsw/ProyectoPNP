@@ -66,6 +66,18 @@ public class PERSONAResource {
                         .build()
         );
     }
+    @GetMapping("/getDNI/{dni}")
+    public ResponseEntity<Response> getByDniPERSONA(@PathVariable("dni") String dni){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("persona",personaService.getByDNI(dni)))
+                        .message("PERSONA retrieved")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+        );
+    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Response> deletePERSONA(@PathVariable("id") Long id){

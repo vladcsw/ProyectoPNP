@@ -41,4 +41,8 @@ public class PERSONAServiceImpl implements PERSONAService {
         personalRepo.deleteById(id);
         return TRUE;
     }
+    @Override
+    public PERSONA getByDNI(String dni){
+        return personalRepo.findByDni(dni);
+    }
 }

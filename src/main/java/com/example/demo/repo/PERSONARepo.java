@@ -5,5 +5,5 @@ import com.example.demo.model.PERSONA;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PERSONARepo extends JpaRepository<PERSONA, Long> {
-
+    PERSONA findByDni(String DNI); 
 }
