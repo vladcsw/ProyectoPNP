@@ -24,6 +24,7 @@ public class PERSONA {
     private String estadoCivil;
     private String fec_reg;
     private String fec_mod;
+    private String dni;
     private int usu_reg;
     private int usu_mod;
     private String estado_activo;
