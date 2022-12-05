@@ -1,6 +1,5 @@
 package com.example.demo.service.implementation;
 
-import com.example.demo.model.CARPETA_TIPO;
 import com.example.demo.model.DOCUMENTO_INMUEBLE;
 import com.example.demo.repo.DOCUMENTO_INMUEBLERepo;
 import com.example.demo.service.DOCUMENTO_INMUEBLEService;
@@ -51,5 +50,4 @@ public class DOCUMENTO_INMUEBLEServiceImpl implements DOCUMENTO_INMUEBLEService 
         log.info("byDocumento:{}", id);
         return documento_inmuebleRepo.ByDocumentoId(id);
     }
-
 }

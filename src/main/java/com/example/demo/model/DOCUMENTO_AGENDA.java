@@ -14,18 +14,12 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DOCUMENTO_VEHICULO {
+public class DOCUMENTO_AGENDA {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private Long arma_tipo_id;
-    private String revolver;
-    private String calibre;
-    private Long arma_calificacion_id;
-    private Long persona_propietario_id;
-    private Long persona_procesion_id;
-    private String numeroSerie;
-    private String sucamedCodigo;
+    private String telefono;
+    private String nombre;
+    private String numero;
     private Long documento_id;
-
 }

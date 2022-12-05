@@ -1,6 +1,5 @@
 package com.example.demo.service.implementation;
 
-import com.example.demo.model.DOCUMENTO_INMUEBLE;
 import com.example.demo.model.DOCUMENTO_VEHICULO;
 import com.example.demo.repo.DOCUMENTO_VEHICULORepo;
 import com.example.demo.service.DOCUMENTO_VEHICULOService;
@@ -46,10 +45,8 @@ public class DOCUMENTO_VEHICULOServiceImpl implements DOCUMENTO_VEHICULOService 
         documento_vehiculoRepo.deleteById(id);
         return TRUE;
     }
-
     public Collection<DOCUMENTO_VEHICULO> byDocumento(Long id) {
         log.info("byDocumento:{}", id);
         return documento_vehiculoRepo.ByDocumentoId(id);
     }
-
 }

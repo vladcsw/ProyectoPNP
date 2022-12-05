@@ -1,6 +1,5 @@
 package com.example.demo.service.implementation;
 
-import com.example.demo.model.DOCUMENTO_INMUEBLE;
 import com.example.demo.model.DOCUMENTO_TELEFONO;
 import com.example.demo.repo.DOCUMENTO_TELEFONORepo;
 import com.example.demo.service.DOCUMENTO_TELEFONOService;
@@ -46,7 +45,6 @@ public class DOCUMENTO_TELEFONOServiceImpl implements DOCUMENTO_TELEFONOService 
         documento_telefonoRepo.deleteById(id);
         return TRUE;
     }
-
     public Collection<DOCUMENTO_TELEFONO> byDocumento(Long id) {
         log.info("byDocumento:{}", id);
         return documento_telefonoRepo.ByDocumentoId(id);

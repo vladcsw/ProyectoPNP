@@ -14,7 +14,7 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DOCUMENTO_VEHICULO {
+public class DOCUMENTO_ARMA {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
@@ -27,5 +27,6 @@ public class DOCUMENTO_VEHICULO {
     private String numeroSerie;
     private String sucamedCodigo;
     private Long documento_id;
+
 
 }

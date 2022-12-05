@@ -18,9 +18,11 @@ public class DOCUMENTO_INMUEBLE {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private String descripcion;
-    private String ubicación;
-    private String uso;
-    private int persona_id;
+    private Long inmueble_tipo_id;
+    private String direccion;
+    private String ubicacion;
+    private Long persona_propietario_id;
+    private Long persona_posesion_id;
+    private String partidaRegistral;
     private Long documento_id;
 }
