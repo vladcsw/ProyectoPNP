@@ -46,8 +46,4 @@ public class DOCUMENTO_ORGANOServiceImpl implements DOCUMENTO_ORGANOService {
         return TRUE;
     }
 
-    public Collection<DOCUMENTO_ORGANO> byDocumento(Long id) {
-        log.info(\"byDocumento:{}\", id);
-        return documento_organoRepo.ByDocumentoId(id);
-    }
 }
