@@ -42,6 +42,7 @@ public class DOCUMENTO {
     private int id_dcumento_padre;
     private int documento_clasificacion_id;
     private int documento_clase_tipo_id;
+    private Long documento_organo_id;
 
     private int carpeta_id;
     //
