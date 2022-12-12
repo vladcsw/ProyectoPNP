@@ -1,17 +1,18 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
+import org.hibernate.annotations.OptimisticLock;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.Set;
 
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class EQUIPO {
@@ -21,5 +22,9 @@ public class EQUIPO {
     private String descripcion;
     private int equipo_tipo_id;
     private int unidad_pnp_id;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "x")
+    private Set<EQUIPO_CARGO> d;
+
 
 }

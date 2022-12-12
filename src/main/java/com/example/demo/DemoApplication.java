@@ -77,6 +77,10 @@ public class DemoApplication {
 			a.save(new RELACION_PER_EMPRESA(null, "Director"));
 			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
 
+
+
+
+
 		};
 
 	}
