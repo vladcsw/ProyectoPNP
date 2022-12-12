@@ -35,4 +35,6 @@ public class PERSONA {
     private int distrito_id;
     private int centro_poblado_id;
 
+    private Long documento_id;
+
 }

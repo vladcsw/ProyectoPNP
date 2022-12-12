@@ -18,6 +18,7 @@ public class DOCUMENTO_TELEFONO {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
+    private Long numeroTelefono;
     private Long persona_proveedor_id;
     private Long persona_propietario_id;
     private Long persona_posesion_id;

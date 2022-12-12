@@ -21,5 +21,7 @@ public class DOCUMENTO_AGENDA {
     private String telefono;
     private String nombre;
     private String numero;
+
+    private Long telefono_id;
     private Long documento_id;
 }
