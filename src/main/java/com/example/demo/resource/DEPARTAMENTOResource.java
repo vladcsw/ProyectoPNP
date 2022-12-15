@@ -40,6 +40,8 @@ public class DEPARTAMENTOResource {
         return departamentoService.list(30);
     }
 
+
+
     @PostMapping("/save")
     public ResponseEntity<Response> saveDEPARTAMENTO(@RequestBody @Valid DEPARTAMENTO departamento) throws IOException {
         return ResponseEntity.ok(

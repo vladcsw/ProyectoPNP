@@ -26,6 +26,7 @@ public class ZTratamientoInformacion{
     private final DOCUMENTO_TELEFONO_EQUIPOServiceImpl documento_telefono_equipoService;
     private final DOCUMENTO_MODALIDADServiceImpl documento_modalidadService;
     private final DOCUMENTO_AGENDAServiceImpl documento_agendaService;
+    private final PEDIDOServiceImpl pedidoService;
 
     @GetMapping("/persona/{id}")
     public Collection<DOCUMENTO_PERSONA> getPERSONA(@PathVariable("id") Long id){
@@ -76,4 +77,15 @@ public class ZTratamientoInformacion{
     public Collection<DOCUMENTO_AGENDA> getagenda(@PathVariable("id") Long id){
         return documento_agendaService.byDocumento(id);
     }
+
+    @GetMapping("/pedido/{id}")
+    public Collection<PEDIDO> getPedido(@PathVariable("id") Long id){
+        return pedidoService.byDocumento(id);
+    }
+
+    @GetMapping("/pedido/distinct/")
+    public Collection<Long> getPedido(){
+        return pedidoService.pedidos();
+    }
+
 }

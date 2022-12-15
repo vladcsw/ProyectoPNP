@@ -1,5 +1,6 @@
 package com.example.demo.service.implementation;
 
+import com.example.demo.model.DOCUMENTO_MODALIDAD;
 import com.example.demo.model.PEDIDO;
 import com.example.demo.repo.PEDIDORepo;
 import com.example.demo.service.PEDIDOService;
@@ -44,5 +45,15 @@ public class PEDIDOServiceImpl implements PEDIDOService {
         log.info("Deleting pedido by ID:{}", id);
         pedidoRepo.deleteById(id);
         return TRUE;
+    }
+
+    public Collection<PEDIDO> byDocumento(Long id) {
+        log.info("byDocumento:{}", id);
+        return pedidoRepo.ByDocumentoId(id);
+    }
+
+    public Collection<Long> pedidos() {
+        log.info("byDocumento:{}");
+        return pedidoRepo.getPedidos();
     }
 }

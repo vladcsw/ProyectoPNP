@@ -2,6 +2,7 @@ package com.example.demo.resource;
 
 import com.example.demo.model.Response;
 import com.example.demo.model.PROVINCIA;
+import com.example.demo.repo.PROVINCIARepo;
 import com.example.demo.service.implementation.PROVINCIAServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,8 @@ import static org.springframework.http.HttpStatus.OK;
 @RequiredArgsConstructor
 public class PROVINCIAResource {
     private final PROVINCIAServiceImpl provinciaService;
+    private final PROVINCIARepo pROVINCIARepo;
+
     @GetMapping("/list")
     public ResponseEntity<Response> getPROVINCIA() throws InterruptedException {
         //throw new InterruptedException("Something went wrong");
@@ -72,6 +75,23 @@ public class PROVINCIAResource {
                 Response.builder()
                         .timeStamp(now())
                         .data(Map.of("deleted",provinciaService.delete(id)))
+                        .message("PROVINCIA deleted")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+        );
+    }
+
+    @PostMapping("/prueba")
+    public ResponseEntity<Response> prueba(  @RequestParam String id2, @RequestBody PROVINCIA provincia){
+        System.out.println("provin"+id2);
+        System.out.println(provincia);
+
+        //System.out.println(provincia);
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(Map.of("deleted","provinciaService.delete(id)"))
                         .message("PROVINCIA deleted")
                         .status(OK)
                         .statusCode(OK.value())

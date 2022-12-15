@@ -3,6 +3,7 @@ package com.example.demo.service.implementation;
 import com.example.demo.model.DOCUMENTO;
 import com.example.demo.model.DOCUMENTO;
 import com.example.demo.repo.DOCUMENTORepo;
+import com.example.demo.repo.DOCUMENTO_CUENTA_BANCARIARepo;
 import com.example.demo.service.DOCUMENTOService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ import static java.lang.Boolean.TRUE;
 @Transactional
 @Slf4j
 public class DOCUMENTOServiceImpl implements DOCUMENTOService {
+    private final DOCUMENTO_CUENTA_BANCARIARepo dOCUMENTO_CUENTA_BANCARIARepo;
     private final DOCUMENTORepo documentoRepo;
     @Override
     public DOCUMENTO create(DOCUMENTO documento) {
@@ -31,6 +33,7 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
         documento.setSituacion("URGENTE");
         documento.setInstructor("USUARIO");
         documento.setDisposicion(1);
+
         return documentoRepo.save(documento);
 
 
@@ -45,8 +48,12 @@ public class DOCUMENTOServiceImpl implements DOCUMENTOService {
     @Override
     public DOCUMENTO get(Long id) {
         return documentoRepo.findById(id).get();
+
     }
 
+    public Collection<DOCUMENTO> getAll(Collection<Long> id) {
+        return documentoRepo.findAllById(id);
+    }
     @Override
     public Boolean delete(Long id) {
         documentoRepo.deleteById(id);

@@ -42,7 +42,7 @@ public class DemoApplication {
 	private String distrito;
 
 	@Bean
-	CommandLineRunner run(ServerRepo serverRepo, PERSONARepo persona, DOCUMENTO_INMUEBLERepo inmueble, DOCUMENTO_EMPRESARepo empresa, DOCUMENTO_INSUMORepo insumo, DOCUMENTO_ARMARepo arma, DOCUMENTO_CUENTA_BANCARIARepo cuenta, DOCUMENTO_MODALIDADRepo modalidad, DOCUMENTO_AGENDARepo agenda, RELACION_PER_EMPRESARepo a, DOCUMENTORepo documentoRepo) throws ParseException {
+	CommandLineRunner run(PEDIDORepo pedidoRepo, ServerRepo serverRepo, PERSONARepo persona, DOCUMENTO_INMUEBLERepo inmueble, DOCUMENTO_EMPRESARepo empresa, DOCUMENTO_INSUMORepo insumo, DOCUMENTO_ARMARepo arma, DOCUMENTO_CUENTA_BANCARIARepo cuenta, DOCUMENTO_MODALIDADRepo modalidad, DOCUMENTO_AGENDARepo agenda, RELACION_PER_EMPRESARepo a, DOCUMENTORepo documentoRepo) throws ParseException {
 
 		SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = DateFor.parse("05/05/2019");
@@ -50,8 +50,8 @@ public class DemoApplication {
 		fileService.init();
 
 		return args -> {
-			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 1","Asunto 1","Tipo de Documento 1","Código 1", LocalDate.now(), "Información 1", "Situación 1","Instructor 1",1,1,1,1,1,1,1,1L,1));
-			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 2","asunto 2","Tipo de Documento 2","Código 2", LocalDate.now(), "Información 2", "Situación 2","Instructor 2",2,1,1,1,1,1,1,1L,1));
+			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 1","Asunto 1","Tipo de Documento 1","SIPA-13122022-1", LocalDate.now(), "Información 1", "Situación 1","Instructor 1",1,1,1,1,1,1,1,1L,1));
+			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 2","asunto 2","Tipo de Documento 2","SIPA-13122022-2", LocalDate.now(), "Información 2", "Situación 2","Instructor 2",2,1,1,1,1,1,1,1L,1));
 
 			persona.save(new  PERSONA(null, "Juan", "Rivero", 44, "Divorciado", LocalDate.now().toString(), LocalDate.now().toString(), "53265262", 1, 1, "Estado", "Rivero", "Rivero", LocalDate.now().toString(), 1, 1, 1,1L));
 			persona.save(new  PERSONA(null, "Pedro", "Diaz", 25, "Soltero", LocalDate.now().toString(), LocalDate.now().toString(), "62373473", 1, 1, "Estado", "Rivero", "Rivero", LocalDate.now().toString(), 1, 1, 1,1L));
@@ -78,7 +78,11 @@ public class DemoApplication {
 			a.save(new RELACION_PER_EMPRESA(null, "Secretario"));
 
 
-
+			pedidoRepo.save(new PEDIDO(null, "Co. Juan Díaz", "Tte. Carla Tezza","Alta","Solicito ubicación de domicilios","Buenas tardes.\n" +
+					"Solicito las coordenadas de los domicilios de los sospechosos.",1L, 1));
+			pedidoRepo.save(new PEDIDO(null, "Tte. Carla Tezza", "Co. Juan Díaz","Alta","Respuesta a Solicitud","Buenas tardes.\n" +
+					"La ubicación se encuentra entre la calle Gran Vía y Romanos.\n" +
+					"Con coordenadas 12.41242, 52.51263",1L, 2));
 
 
 		};

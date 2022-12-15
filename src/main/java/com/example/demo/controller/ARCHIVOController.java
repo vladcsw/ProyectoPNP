@@ -43,6 +43,7 @@ public class ARCHIVOController {
         //ARCHIVO x = archivox;
         //ARCHIVO x = (ARCHIVO) archivox;
         //ARCHIVO x = new ARCHIVO(null, archivox, )
+        //System.out.println(archivo);
         System.out.print(archivox);
         //archivoServiceImpl.create(x);
         String message = "";

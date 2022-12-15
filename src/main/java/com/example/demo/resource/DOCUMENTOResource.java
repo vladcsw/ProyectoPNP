@@ -48,6 +48,10 @@ public class DOCUMENTOResource {
         return documentoService.list(30);
     }
 
+    @GetMapping("/getAll/{id}")
+    public Collection<DOCUMENTO> getSimpleDEPARTAMENTO(@PathVariable("id") Collection<Long> id)  {
+        return documentoService.getAll(id);
+    }
     @PostMapping("/save")
     public ResponseEntity<Response> saveDOCUMENTO(@RequestBody @Valid DOCUMENTO documento) throws IOException {
         return ResponseEntity.ok(

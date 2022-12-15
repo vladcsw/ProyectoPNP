@@ -18,11 +18,13 @@ public class PEDIDO {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
-    private int persona_de;
-    private int persona_para;
+    private String de;
+    private String para;
+    private String prioridad;
     private String asunto;
-    private String antecedente;
     private String pedido;
+    private Long documento_id;
+    private int firma;
 
 
 }
