@@ -5,11 +5,11 @@ spring:
       max-request-size: 5000KB
   datasource:
     platform: postgres
-    password: user
+    password: 123456
     url: jdbc:postgresql://localhost:5432/test
     username: postgres
   jpa:
     database: POSTGRESQL
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
