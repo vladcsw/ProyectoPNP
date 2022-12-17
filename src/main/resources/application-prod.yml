@@ -5,9 +5,9 @@ spring:
       max-request-size: 5000KB
   datasource:
     platform: postgres
-    password: user
-    url: jdbc:postgresql://localhost:5432/test
-    username: postgres
+    password: ${PROD_DB_PASSWORD}
+    url: jdbc:postgresql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}
+    username: ${PROD_DB_USERNAME}
   jpa:
     database: POSTGRESQL
     hibernate:

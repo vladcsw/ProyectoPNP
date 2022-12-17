@@ -50,8 +50,8 @@ public class DemoApplication {
 		fileService.init();
 
 		return args -> {
-			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 1","Asunto 1","Tipo de Documento 1","SIPA-13122022-1", LocalDate.now(), "Información 1", "Situación 1","Instructor 1",1,1,1,1,1,1,1,1L,1));
-			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 2","asunto 2","Tipo de Documento 2","SIPA-13122022-2", LocalDate.now(), "Información 2", "Situación 2","Instructor 2",2,1,1,1,1,1,1,1L,1));
+			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 1","Asunto 1","Tipo de Documento 1","SIPA-13122022-1", LocalDate.now(), LocalDate.now().toString(), "Situación 1","Instructor 1",1,1,1,1,1,1,1,1L,1));
+			documentoRepo.save(new DOCUMENTO(null,"Documento de Prueba 2","asunto 2","Tipo de Documento 2","SIPA-13122022-2", LocalDate.now(), LocalDate.now().toString(), "Situación 2","Instructor 2",2,1,1,1,1,1,1,1L,1));
 
 			persona.save(new  PERSONA(null, "Juan", "Rivero", 44, "Divorciado", LocalDate.now().toString(), LocalDate.now().toString(), "53265262", 1, 1, "Estado", "Rivero", "Rivero", LocalDate.now().toString(), 1, 1, 1,1L));
 			persona.save(new  PERSONA(null, "Pedro", "Diaz", 25, "Soltero", LocalDate.now().toString(), LocalDate.now().toString(), "62373473", 1, 1, "Estado", "Rivero", "Rivero", LocalDate.now().toString(), 1, 1, 1,1L));
