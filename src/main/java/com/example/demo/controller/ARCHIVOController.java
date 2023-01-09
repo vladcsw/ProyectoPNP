@@ -56,7 +56,7 @@ public class ARCHIVOController {
                 fileService.save(file, f);
                 String url = MvcUriComponentsBuilder.fromMethodName(ARCHIVOController.class, "getFile",
                         f+file.getOriginalFilename()).build().toString();
-                url = url.substring(0, 4) + "s" + url.substring(4, url.length());
+                //url = url.substring(0, 4) + "s" + url.substring(4, url.length());
                 System.out.println(url);
                 repo.save(new ARCHIVO(null, f+file.getOriginalFilename(), url, Long.parseLong(archivox)));
                 fileNames.add(file.getOriginalFilename());
